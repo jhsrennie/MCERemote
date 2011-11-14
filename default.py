@@ -35,7 +35,8 @@ _settings = xbmcaddon.Addon(id=_thisPluginName)
 _ReportMappingTable = "SYSTEM\\CurrentControlSet\\Services\\HidIr\\Remotes\\745a17a0-74d3-11d0-b6fe-00a0c90f57da"
 
 # Path to our data directory
-_DataDir = xbmc.translatePath("special://home/addons/" + _thisPluginName + "/resources/data")
+_AddonDir = xbmc.validatePath(_settings.getAddonInfo("path") + "/")
+_DataDir  = xbmc.validatePath(_AddonDir + "resources/data/")
 
 # Data for the remote control buttons
 # The array contains tuples of (button_name, button_number, default_setting, mce_default)
@@ -482,7 +483,7 @@ def EditKeyboardDotXML():
 
 # Check whether keyboard.xml exists
 
-    dstpath = xbmc.translatePath("special://home/") + "userdata\\keymaps\\keyboard.xml"
+    dstpath = xbmc.translatePath("special://home/userdata/keymaps/keyboard.xml")
     if not os.path.isfile(dstpath):
         if dialog.yesno("MCERemote", "You don't currently have a keyboard.xml file.", "Do you want to create one?"):
             CreateKeyboardDotXML()
@@ -492,9 +493,9 @@ def EditKeyboardDotXML():
 # Select the keymap editor: if KeyMapEdit.exe exists use it, otherwise
 # use Notepad.
 
-    srcpath = xbmc.translatePath("special://home/") + "addons\\" + _thisPluginName + "\\resources\\data\\KeyMapEdit.exe"
+    srcpath = _DataDir + "KeyMapEdit.exe"
     if not os.path.isfile(srcpath):
-        srcpath = xbmc.translatePath("special://xbmc/") + "addons\\" + _thisPluginName + "\\resources\\data\\KeyMapEdit.exe"
+        srcpath = xbmc.translatePath("special://xbmc/addons/" + _thisPluginName + "/resources/data/KeyMapEdit.exe")
         if not os.path.isfile(srcpath):
             srcpath = "notepad.exe"
 
@@ -539,9 +540,9 @@ def CreateKeyboardDotXML():
 
 # Find the template file: try the profile first
 
-    srcpath = xbmc.translatePath("special://home/") + "addons\\" + _thisPluginName + "\\resources\\data\\keyboard.xml"
+    srcpath = _DataDir + "keyboard.xml"
     if not os.path.isfile(srcpath):
-        srcpath = xbmc.translatePath("special://xbmc/") + "addons\\" + _thisPluginName + "\\resources\\data\\keyboard.xml"
+        srcpath = xbmc.translatePath("special://xbmc/addons/" + _thisPluginName + "/resources/data/keyboard.xml")
 
     if not os.path.isfile(srcpath):
         dialog.ok("MCERemote", "Cannot find the template keyboard.xml.", "The MCERemote addon is not properly installed.")
@@ -549,7 +550,7 @@ def CreateKeyboardDotXML():
 
 # Check whether a keyboard.xml already exists
 
-    dstpath = xbmc.translatePath("special://home/") + "userdata\\keymaps\\keyboard.xml"
+    dstpath = xbmc.translatePath("special://home/userdata/keymaps/keyboard.xml")
     if os.path.isfile(dstpath):
         if not dialog.yesno("MCERemote", "A keyboard.xml already exists in:", dstpath, "Do you want to overwrite it?"):
             return
@@ -572,7 +573,6 @@ def CreateKeyboardDotXML():
 # Return True or False to indicate whether the download succeeded.
 # **********************************************************************
 
-# _KEYMAPEDITURL = "http://sourceforge.net/projects/xbmcmce/files/KeyMapEdit.exe/download"
 _KEYMAPEDITURL = "http://swarchive.ratsauce.co.uk/XBMC/KeyMapEdit.exe"
 
 def GetKeyMapEdit():
@@ -581,7 +581,7 @@ def GetKeyMapEdit():
 
     dialog = xbmcgui.Dialog()
 
-    dstpath = xbmc.translatePath("special://home/") + "addons\\" + _thisPluginName + "\\resources\\data\\KeyMapEdit.exe"
+    dstpath = _DataDir + "KeyMapEdit.exe"
 
     # Attempt to open KeymapEdit.exe from Sourceforge
     try:
@@ -626,9 +626,9 @@ def ReadInstructions():
 
 # Find the Readme file: try the profile first
 
-    ourpath = xbmc.translatePath("special://home/") + "addons\\" + _thisPluginName + "\\ReadMeFirst.txt"
+    ourpath = _AddonDir + "ReadMeFirst.txt"
     if not os.path.isfile(ourpath):
-        ourpath = xbmc.translatePath("special://xbmc/") + "addons\\" + _thisPluginName + "\\ReadMeFirst.txt"
+        ourpath = xbmc.translatePath("special://xbmc/addons/" + _thisPluginName + "/ReadMeFirst.txt")
 
     if not os.path.isfile(ourpath):
         dialog = xbmcgui.Dialog()
