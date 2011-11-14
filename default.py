@@ -2,7 +2,7 @@
 ************************************************************************
 MCERemote Addon
 Author: John Rennie
-v1.1.15 16th Nov 2010
+v2.0.0 14th Nov 2011
 
 This addon allows you to configure a Microsoft MCE remote, or any
 compatible remote using the eHome driver.

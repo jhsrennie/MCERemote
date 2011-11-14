@@ -1,4 +1,5 @@
-[B]Version 1.1.16 14th Nov 2011[/B]
+[B]Version 2.0.0 14th Nov 2011[/B]
+- New version for Eden
 - Add support for extra buttons on XBox universal, Mediagate and HP remotes
 - Fix error if the Windows button is set to "mce"
 
