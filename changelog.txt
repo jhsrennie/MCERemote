@@ -1,3 +1,7 @@
+[B]Version 1.1.16 14th Nov 2011[/B]
+- Add support for extra buttons on XBox universal, Mediagate and HP remotes
+- Fix error if the Windows button is set to "mce"
+
 [B]Version 1.1.15 20th Nov 2010[/B]
 - Fix minor bug in keymap editor download.
 
