@@ -80,17 +80,35 @@ _buttonData = (
   ("button_livetv",     0x25, "ctrl-shift-t", ""),
   ("button_guide",      0x26, "ctrl-g",       "\x01\x8d\x00"),
   ("button_asrock",     0x27, "ctrl-alt-t",   ""),
+
+  ("button_xbopen",     0x28, "",   ""), # Open/Close on XBox universal remote
+  ("button_hpwron",     0x29, "",   ""), # Harmony discrete power on
+  ("button_hpwroff",    0x2a, "",   ""), # Harmony discrete power off
+
   ("button_music",      0x47, "ctrl-m",       ""),
   ("button_recordedtv", 0x48, "ctrl-o",       ""),
   ("button_pictures",   0x49, "ctrl-i",       ""),
   ("button_movies",     0x4A, "ctrl-e",       ""),
-  ("button_print",      0x4E, "ctrl-alt-p",   "\x01\x08\x02"),
+
+  ("button_mgangle",    0x4b, "",   ""), # Mediagate DVD Angle
+  ("button_mgaudio",    0x4c, "",   ""), # Mediagate DVD Audio
+  ("button_mgsubtitle", 0x4d, "",   ""), # Mediagate Subtitles
+  ("button_hpprint",    0x4e, "",   ""), # Print on HP remote
+  ("button_xbdisplay",  0x4f, "",   ""), # Display on XBox universal remote
+
   ("button_radio",      0x50, "ctrl-a",       ""),
-  ("button_teletext",   0x5A, "ctrl-t",       ""),
-  ("button_red",        0x5B, "ctrl-alt-1",   ""),
-  ("button_green",      0x5C, "ctrl-alt-2",   ""),
-  ("button_yellow",     0x5D, "ctrl-alt-3",   ""),
-  ("button_blue",       0x5E, "ctrl-alt-4",   "")
+  ("button_teletext",   0x5a, "ctrl-t",       ""),
+  ("button_red",        0x5b, "ctrl-alt-1",   ""),
+  ("button_green",      0x5c, "ctrl-alt-2",   ""),
+  ("button_yellow",     0x5d, "ctrl-alt-3",   ""),
+  ("button_blue",       0x5e, "ctrl-alt-4",   ""),
+
+  ("button_xblargex",   0x64, "",   ""), # Large X on XBox universal remote
+  ("button_xbgreena",   0x66, "",   ""), # Green A on XBox universal remote
+  ("button_xbbluex",    0x68, "",   ""), # Blue  X on XBox universal remote
+  ("button_xbchanup",   0x6c, "",   ""), # Chan up on XBox universal remote
+  ("button_xbchandn",   0x6d, "",   ""), # Chan dn on XBox universal remote
+  ("button_playpause",  0x6e, "",   ""), # Play/pause on HP remote
 )
 
 # Key to eHome character code mapping table
@@ -311,7 +329,14 @@ def ApplyCurrentSettings(Prompt):
     reportmappingtable = ""
 
     for button in _buttonData:
+        # keytext is the text entered by the user
         keytext = _settings.getSetting(button[0])
+
+        # if the user has entered "mce" but the button table contains no
+        # default, set the keytext to "" so it will be ignored.
+        if keytext == "mce" and button[3] == "":
+            keytext = ""
+
         if keytext != "":
             thisbutton = ConvertKeyText(keytext, button[3])
             if thisbutton == "":

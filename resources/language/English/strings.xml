@@ -46,13 +46,32 @@
     <string id="40072">Recorded TV</string>
     <string id="40073">My Pictures</string>
     <string id="40074">My Movies</string>
-    <string id="40078">Print (on HP)</string>
     <string id="40080">Radio</string>
     <string id="40090">Teletext</string>
     <string id="40091">Red button</string>
     <string id="40092">Green button</string>
     <string id="40093">Yellow button</string>
     <string id="40094">Blue button</string>
+
+    <!-- Remote specific settings -->
+    <string id="40041">Harmony discrete power on</string>
+    <string id="40042">Harmony discrete power off</string>
+
+    <string id="40075">Mediagate DVD Angle</string>
+    <string id="40076">Mediagate DVD Audio</string>
+    <string id="40077">Mediagate Subtitles</string>
+
+    <string id="40078">HP print</string>
+    <string id="40110">HP play/pause</string>
+
+    <string id="40040">XBox Open/Close</string>
+    <string id="40079">XBox Display</string>
+    <string id="40100">XBox Large X</string>
+    <string id="40102">XBox Green A</string>
+    <string id="40104">XBox Blue X</string>
+    <string id="40108">XBox Chan up</string>
+    <string id="40109">XBox Chan dn</string>
+
     <!-- Strings: Misc Menu -->
     <string id="49998">Misc settings</string>
     <string id="41000">Update/install keymap editor</string>
