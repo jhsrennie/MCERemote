@@ -12,7 +12,7 @@
   </extension>
   <extension point="xbmc.addon.metadata">
     <platform>windx</platform>
-    <language>en</language>
+    <language></language>
     <summary>MCE Remote configuration</summary>
     <description>This addon allows you to configure a Microsoft MCE remote, or any compatible remote using the eHome driver. The addon appears under the Programs heading on the Home page as "MCERemote".</description>
   </extension>
