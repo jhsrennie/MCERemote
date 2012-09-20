@@ -1,3 +1,6 @@
+[B]Version 2.0.4 20th Sep 2012[/B]
+- Remove dependance on xbmc.gui from addon.xml
+
 [B]Version 2.0.3 20th Sep 2012[/B]
 - Use xbmc.gui 3.0
 
