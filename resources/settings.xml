@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
-  <category label="39999">
+  <category label="30999">
     <setting id="button_0"          type="text" label="30000" default="0"             />
     <setting id="button_1"          type="text" label="30001" default="1"             />
     <setting id="button_2"          type="text" label="30002" default="2"             />
@@ -74,7 +74,7 @@
     <setting id="button_xbchandn"   type="text" label="30109" default="" /> <!-- Chan dn on XBox universal remote -->
 
   </category>
-  <category label="39998">
-    <setting id="update_keyedit"    type="bool" label="31000" default="true" />
+  <category label="30998">
+    <setting id="update_keyedit"    type="bool" label="30200" default="true" />
   </category>
 </settings>

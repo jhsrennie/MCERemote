@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <strings>
     <!-- Strings: Main Menu -->
-    <string id="39999">Button mappings</string>
+    <string id="30999">Button mappings</string>
     <string id="30000">Number 0</string>
     <string id="30001">Number 1</string>
     <string id="30002">Number 2</string>
@@ -73,6 +73,6 @@
     <string id="30109">XBox Chan dn</string>
 
     <!-- Strings: Misc Menu -->
-    <string id="39998">Misc settings</string>
-    <string id="31000">Update/install keymap editor</string>
+    <string id="30998">Misc settings</string>
+    <string id="30200">Update/install keymap editor</string>
 </strings>
