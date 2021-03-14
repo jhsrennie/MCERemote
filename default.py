@@ -18,6 +18,7 @@ default for a freshly installed MCE remote.
 
 import sys
 import platform
+import xbmcvfs
 import xbmcplugin
 import xbmcgui
 import xbmcaddon
@@ -26,7 +27,7 @@ import xbmcaddon
 _thisPlugin = int(sys.argv[1])
 
 # Name of the plugin
-_thisPluginName = "plugin.program.mceremote"
+_thisPluginName = "plugin.program.mceremote3"
 
 # Addon object for reading settings
 _settings = xbmcaddon.Addon(id=_thisPluginName)
@@ -35,8 +36,8 @@ _settings = xbmcaddon.Addon(id=_thisPluginName)
 _ReportMappingTable = "SYSTEM\\CurrentControlSet\\Services\\HidIr\\Remotes\\745a17a0-74d3-11d0-b6fe-00a0c90f57da"
 
 # Path to our data directory
-_AddonDir = xbmc.validatePath(_settings.getAddonInfo("path") + "/")
-_DataDir  = xbmc.validatePath(_AddonDir + "resources/data/")
+_AddonDir = xbmcvfs.validatePath(_settings.getAddonInfo("path") + "/")
+_DataDir  = xbmcvfs.validatePath(_AddonDir + "resources/data/")
 
 # Data for the remote control buttons
 # The array contains tuples of (button_name, button_number, default_setting, mce_default)
@@ -227,13 +228,13 @@ _KeyToeHomeCode = (
 # **********************************************************************
 def CheckRegKey():
 
-    import _winreg
+    import winreg
 
     try:
-        hkey = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, _ReportMappingTable)
-        rmp = _winreg.QueryValueEx(hkey, "ReportMappingTable")
+        hkey = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, _ReportMappingTable)
+        rmp = winreg.QueryValueEx(hkey, "ReportMappingTable")
         foundkey = True
-        _winreg.CloseKey(hkey)
+        winreg.CloseKey(hkey)
 
     except:
         foundkey = False
@@ -322,7 +323,7 @@ def ApplyCurrentSettings(Prompt):
     dialog = xbmcgui.Dialog()
 
     if Prompt:
-        if not dialog.yesno("MCERemote", "This will configure the remote using the currently", "configured settings.", "Do you want to proceed?"):
+        if not dialog.yesno("MCERemote", "This will configure the remote using the currently configured settings. Do you want to proceed?"):
             return
 
 # Build the settings string from the _buttonData
@@ -341,7 +342,7 @@ def ApplyCurrentSettings(Prompt):
         if keytext != "":
             thisbutton = ConvertKeyText(keytext, button[3])
             if thisbutton == "":
-                dialog.ok("MCERemote", "The setting for " + button[0] + " is invalid:", keytext)
+                dialog.ok("MCERemote", "The setting for " + button[0] + " is invalid: " + keytext)
                 return
 
             reportmappingtable = reportmappingtable + chr(button[1]) + "\x00\x00\x00" + thisbutton
@@ -349,9 +350,9 @@ def ApplyCurrentSettings(Prompt):
 # Open the registry key
 
     try:
-        hkey = _winreg.OpenKeyEx(_winreg.HKEY_LOCAL_MACHINE, _ReportMappingTable, 0, _winreg.KEY_SET_VALUE)
-    except WindowsError, e:
-        dialog.ok("MCERemote", "Error opening the IR registry key:", e.args[1], "Try running XBMC as administrator")
+        hkey = winreg.OpenKeyEx(winreg.HKEY_LOCAL_MACHINE, _ReportMappingTable, 0, winreg.KEY_SET_VALUE)
+    except WindowsError as e:
+        dialog.ok("MCERemote", "Error opening the IR registry key: " + e.args[1] + ". Try running XBMC as administrator")
         return
     except:
         dialog.ok("MCERemote", "Unexpected error opening the IR registry key")
@@ -360,14 +361,16 @@ def ApplyCurrentSettings(Prompt):
 # Write the ReportMappingTable data
 
     try:
-        _winreg.SetValueEx(hkey, "ReportMappingTable", 0, _winreg.REG_BINARY, reportmappingtable)
+        winreg.SetValueEx(hkey, "ReportMappingTable", 0, winreg.REG_BINARY, reportmappingtable)
+    except Exception as e:
+        dialog.ok("MCERemote", "Unexpected error writing the ReportMappingTable data: " + e.args[0])
     except:
         dialog.ok("MCERemote", "Unexpected error writing the ReportMappingTable data")
 
 # Finished!
 
-    _winreg.CloseKey(hkey)
-    dialog.ok("MCERemote", "Done!", "Please restart Windows to activate the changes.")
+    winreg.CloseKey(hkey)
+    dialog.ok("MCERemote", "Done! Please restart Windows to activate the changes.")
 
 
 # **********************************************************************
@@ -382,15 +385,15 @@ def ApplyDefaultSettings(Prompt):
     dialog = xbmcgui.Dialog()
 
     if Prompt:
-        if not dialog.yesno("MCERemote", "This will reset the remote to the default MS config.", "Do you want to proceed?"):
+        if not dialog.yesno("MCERemote", "This will reset the remote to the default MS config. Do you want to proceed?"):
             return
 
 # Open the registry key
 
     try:
-        hkey = _winreg.OpenKeyEx(_winreg.HKEY_LOCAL_MACHINE, _ReportMappingTable, 0, _winreg.KEY_SET_VALUE)
-    except WindowsError, e:
-        dialog.ok("MCERemote", "Error opening the IR registry key:", e.args[1], "Try running XBMC as administrator")
+        hkey = winreg.OpenKeyEx(winreg.HKEY_LOCAL_MACHINE, _ReportMappingTable, 0, winreg.KEY_SET_VALUE)
+    except WindowsError as e:
+        dialog.ok("MCERemote", "Error opening the IR registry key: " + e.args[1] + ". Try running XBMC as administrator")
         return
     except:
         dialog.ok("MCERemote", "Unexpected error opening the IR registry key")
@@ -408,14 +411,16 @@ def ApplyDefaultSettings(Prompt):
 # Write the ReportMappingTable data
 
     try:
-        _winreg.SetValueEx(hkey, "ReportMappingTable", 0, _winreg.REG_BINARY, reportmappingtable)
+        winreg.SetValueEx(hkey, "ReportMappingTable", 0, winreg.REG_BINARY, reportmappingtable)
+    except Exception as e:
+        dialog.ok("MCERemote", "Unexpected error writing the ReportMappingTable data: " + e.args[0])
     except:
         dialog.ok("MCERemote", "Unexpected error writing the ReportMappingTable data")
 
 # Finished!
 
-    _winreg.CloseKey(hkey)
-    dialog.ok("MCERemote", "Done!", "Please restart Windows to activate the changes.")
+    winreg.CloseKey(hkey)
+    dialog.ok("MCERemote", "Done! Please restart Windows to activate the changes.")
 
 
 # **********************************************************************
@@ -431,7 +436,7 @@ def ConfigureButtonSettings():
 
 # Ask the user if they want to apply these settings
 
-    if xbmcgui.Dialog().yesno("MCERemote", "Do you want to apply these settings to the", "remote now?"):
+    if xbmcgui.Dialog().yesno("MCERemote", "Do you want to apply these settings to the remote now?"):
         ApplyCurrentSettings(False)
 
 
@@ -445,7 +450,7 @@ def RestoreDefaultButtonSettings():
 # Require confirmation from the user
 
     dialog = xbmcgui.Dialog()
-    if not dialog.yesno("MCERemote", "This will reset the remote button settings", "to the Media Center defaults.", "Do you want to proceed?"):
+    if not dialog.yesno("MCERemote", "This will reset the remote button settings to the Media Center defaults. Do you want to proceed?"):
         return
 
 # Restore the default settings from the info in _buttonData
@@ -455,7 +460,7 @@ def RestoreDefaultButtonSettings():
 
 # Ask the user if they want to apply these settings
 
-    if xbmcgui.Dialog().yesno("MCERemote", "Do you want to apply these settings to the", "remote now?"):
+    if xbmcgui.Dialog().yesno("MCERemote", "Do you want to apply these settings to the remote now?"):
         ApplyCurrentSettings(False)
 
 
@@ -475,7 +480,7 @@ def EditKeyboardDotXML():
 
     doupdate = _settings.getSetting("update_keyedit")
     if doupdate == "true":
-        if dialog.yesno("MCERemote", "Do you want to update the keymap editor", "from Sourceforge?"):
+        if dialog.yesno("MCERemote", "Do you want to update the keymap editor from Sourceforge?"):
             if GetKeyMapEdit():
                 _settings.setSetting("update_keyedit", "false")
             else:
@@ -483,9 +488,9 @@ def EditKeyboardDotXML():
 
 # Check whether keyboard.xml exists
 
-    dstpath = xbmc.translatePath("special://home/userdata/keymaps/keyboard.xml")
+    dstpath = xbmcvfs.translatePath("special://home/userdata/keymaps/keyboard.xml")
     if not os.path.isfile(dstpath):
-        if dialog.yesno("MCERemote", "You don't currently have a keyboard.xml file.", "Do you want to create one?"):
+        if dialog.yesno("MCERemote", "You don't currently have a keyboard.xml file. Do you want to create one?"):
             CreateKeyboardDotXML()
         else:
             return
@@ -495,7 +500,7 @@ def EditKeyboardDotXML():
 
     srcpath = _DataDir + "KeyMapEdit.exe"
     if not os.path.isfile(srcpath):
-        srcpath = xbmc.translatePath("special://xbmc/addons/" + _thisPluginName + "/resources/data/KeyMapEdit.exe")
+        srcpath = xbmcvfs.translatePath("special://xbmc/addons/" + _thisPluginName + "/resources/data/KeyMapEdit.exe")
         if not os.path.isfile(srcpath):
             srcpath = "notepad.exe"
 
@@ -503,8 +508,8 @@ def EditKeyboardDotXML():
 
     child = subprocess.Popen(srcpath + ' "' + dstpath + '"')
     rc = child.wait()
-    ourpath = xbmc.translatePath("special://xbmcbin/")
-    child = subprocess.Popen(ourpath + "XBMC.exe")
+    ourpath = xbmcvfs.translatePath("special://xbmcbin/")
+    child = subprocess.Popen(ourpath + "kodi.exe")
 
 # Now parse the file to check for any obvious errors
 
@@ -513,8 +518,8 @@ def EditKeyboardDotXML():
     try:
         doc = xml.dom.minidom.parse(dstpath)
 
-    except xml.parsers.expat.ExpatError, e:
-        dialog.ok("MCERemote", "Warning: your file has an error:", e.args[0])
+    except xml.parsers.expat.ExpatError as e:
+        dialog.ok("MCERemote", "Warning: your file has an error: " + e.args[0])
 
     except:
         dialog.ok("MCERemote", "There was an unidentified error in your file")
@@ -542,20 +547,20 @@ def CreateKeyboardDotXML():
 
     srcpath = _DataDir + "keyboard.xml"
     if not os.path.isfile(srcpath):
-        srcpath = xbmc.translatePath("special://xbmc/addons/" + _thisPluginName + "/resources/data/keyboard.xml")
+        srcpath = xbmcvfs.translatePath("special://xbmc/addons/" + _thisPluginName + "/resources/data/keyboard.xml")
 
     if not os.path.isfile(srcpath):
-        dialog.ok("MCERemote", "Cannot find the template keyboard.xml.", "The MCERemote addon is not properly installed.")
+        dialog.ok("MCERemote", "Cannot find the template keyboard.xml. The MCERemote addon is not properly installed.")
         return
 
 # Check whether a keyboard.xml already exists
 
-    dstpath = xbmc.translatePath("special://home/userdata/keymaps/keyboard.xml")
+    dstpath = xbmcvfs.translatePath("special://home/userdata/keymaps/keyboard.xml")
     if os.path.isfile(dstpath):
-        if not dialog.yesno("MCERemote", "A keyboard.xml already exists in:", dstpath, "Do you want to overwrite it?"):
+        if not dialog.yesno("MCERemote", "A keyboard.xml already exists in: " + dstpath + ". Do you want to overwrite it?"):
             return
 
-    elif not dialog.yesno("MCERemote", "Create the template keyboard.xml in:", dstpath):
+    elif not dialog.yesno("MCERemote", "Create the template keyboard.xml in: " + dstpath):
         return
 
 # Copy the template keyboard.xml
@@ -595,16 +600,16 @@ def GetKeyMapEdit():
             localFile.close()
 
         # Attempt to open KeyMapEdit.exe failed
-        except IOError, e:
-            dialog.ok("MCERemote", "Failed to open KeyMapEdit.exe:", str(e.args[1]))
+        except IOError as e:
+            dialog.ok("MCERemote", "Failed to open KeyMapEdit.exe: " + str(e.args[1]))
             return False
         except:
             dialog.ok("MCERemote", "Unidentified error downloading KeyMapEdit.exe")
             return False
 
     # Attempt to open Sourceforge failed
-    except IOError, e:
-        dialog.ok("MCERemote", "Failed to connect to Sourceforge:", str(e.args[1]))
+    except IOError as e:
+        dialog.ok("MCERemote", "Failed to connect to Sourceforge: " + str(e.args[1]))
         return False
     except:
         dialog.ok("MCERemote", "Unidentified error connecting to Sourceforge")
@@ -628,11 +633,11 @@ def ReadInstructions():
 
     ourpath = _AddonDir + "ReadMeFirst.txt"
     if not os.path.isfile(ourpath):
-        ourpath = xbmc.translatePath("special://xbmc/addons/" + _thisPluginName + "/ReadMeFirst.txt")
+        ourpath = xbmcvfs.translatePath("special://xbmc/addons/" + _thisPluginName + "/ReadMeFirst.txt")
 
     if not os.path.isfile(ourpath):
         dialog = xbmcgui.Dialog()
-        dialog.ok("MCERemote", "Cannot find ReadMeFirst.txt.", "The MCERemote addon is not properly installed.")
+        dialog.ok("MCERemote", "Cannot find ReadMeFirst.txt. The MCERemote addon is not properly installed.")
         return
 
 # Open the readme file in Notepad
@@ -642,8 +647,8 @@ def ReadInstructions():
 
 # Run XBMC: this will simply set the focus back to the current instance
 
-    ourpath = xbmc.translatePath("special://xbmcbin/")
-    child = subprocess.Popen(ourpath + "XBMC.exe")
+    ourpath = xbmcvfs.translatePath("special://xbmcbin/")
+    child = subprocess.Popen(ourpath + "kodi.exe")
 
 
 # **********************************************************************
@@ -683,12 +688,12 @@ def ListOptions():
 dialog = xbmcgui.Dialog()
 
 # Check if we are running on Windows and display an error if not
-if sys.platform <> "win32":
+if sys.platform != "win32":
     dialog.ok("MCERemote", "This plugin only runs on Windows")
 
 # We're on Windows
 else:
-    import _winreg
+    import winreg
 
 # Get the selected option if any
 
@@ -722,7 +727,7 @@ else:
 # key is not present and warn the user
     else:
         if not CheckRegKey():
-            dialog.ok("MCERemote", "Warning:", "The ReportMappingTable registry key is not present.", "No Microsoft remote is installed.")
+            dialog.ok("MCERemote", "Warning: The ReportMappingTable registry key is not present. No Microsoft remote is installed.")
 
 # Finally list the options
     ListOptions()
