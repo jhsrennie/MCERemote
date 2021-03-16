@@ -42,75 +42,77 @@ _DataDir  = xbmcvfs.validatePath(_AddonDir + "resources/data/")
 # Data for the remote control buttons
 # The array contains tuples of (button_name, button_number, default_setting, mce_default)
 _buttonData = (
-  ("button_0",          0x00, "0",            "\x04\x00\x27"),
-  ("button_1",          0x01, "1",            "\x04\x00\x1e"),
-  ("button_2",          0x02, "2",            "\x04\x00\x1f"),
-  ("button_3",          0x03, "3",            "\x04\x00\x20"),
-  ("button_4",          0x04, "4",            "\x04\x00\x21"),
-  ("button_5",          0x05, "5",            "\x04\x00\x22"),
-  ("button_6",          0x06, "6",            "\x04\x00\x23"),
-  ("button_7",          0x07, "7",            "\x04\x00\x24"),
-  ("button_8",          0x08, "8",            "\x04\x00\x25"),
-  ("button_9",          0x09, "9",            "\x04\x00\x26"),
-  ("button_clear",      0x0a, "escape",       "\x04\x00\x29"),
-  ("button_enter",      0x0b, "return",       "\x04\x00\x28"),
-  ("button_power",      0x0c, "",             "\x03\x82\x00"),
-  ("button_windows",    0x0d, "ctrl-shift-w", ""),
-  ("button_mute",       0x0e, "f8",           "\x01\xe2\x00"),
-  ("button_info",       0x0f, "ctrl-d",       "\x01\x09\x02"),
-  ("button_volup",      0x10, "f10",          "\x01\xe9\x00"),
-  ("button_voldown",    0x11, "f9",           "\x01\xea\x00"),
-  ("button_chanup",     0x12, "pageup",       "\x01\x9c\x00"),
-  ("button_chandown",   0x13, "pagedown",     "\x01\x9d\x00"),
-  ("button_ff",         0x14, "ctrl-shift-f", "\x01\xb3\x00"),
-  ("button_rew",        0x15, "ctrl-shift-b", "\x01\xb4\x00"),
-  ("button_play",       0x16, "ctrl-shift-p", "\x01\xb0\x00"),
-  ("button_record",     0x17, "ctrl-r",       "\x01\xb2\x00"),
-  ("button_pause",      0x18, "ctrl-p",       "\x01\xb1\x00"),
-  ("button_stop",       0x19, "ctrl-shift-s", "\x01\xb7\x00"),
-  ("button_next",       0x1a, "ctrl-f",       "\x01\xb5\x00"),
-  ("button_prev",       0x1b, "ctrl-b",       "\x01\xb6\x00"),
-  ("button_hash",       0x1c, "ctrl-shift-3", "\x04\x02\x20"),
-  ("button_star",       0x1d, "ctrl-shift-8", "\x04\x02\x25"),
-  ("button_up",         0x1e, "up",           "\x04\x00\x52"),
-  ("button_down",       0x1f, "down",         "\x04\x00\x51"),
-  ("button_left",       0x20, "left",         "\x04\x00\x50"),
-  ("button_right",      0x21, "right",        "\x04\x00\x4f"),
-  ("button_ok",         0x22, "return",       "\x04\x00\x28"),
-  ("button_back",       0x23, "backspace",    "\x01\x24\x02"),
-  ("button_dvdmenu",    0x24, "ctrl-shift-m", ""),
-  ("button_livetv",     0x25, "ctrl-shift-t", ""),
-  ("button_guide",      0x26, "ctrl-g",       "\x01\x8d\x00"),
-  ("button_asrock",     0x27, "ctrl-alt-t",   ""),
+  ("button_0",          0x00, "0",            [0x04,0x00,0x27]),
+  ("button_1",          0x01, "1",            [0x04,0x00,0x1e]),
+  ("button_2",          0x02, "2",            [0x04,0x00,0x1f]),
+  ("button_3",          0x03, "3",            [0x04,0x00,0x20]),
+  ("button_4",          0x04, "4",            [0x04,0x00,0x21]),
+  ("button_5",          0x05, "5",            [0x04,0x00,0x22]),
+  ("button_6",          0x06, "6",            [0x04,0x00,0x23]),
+  ("button_7",          0x07, "7",            [0x04,0x00,0x24]),
+  ("button_8",          0x08, "8",            [0x04,0x00,0x25]),
+  ("button_9",          0x09, "9",            [0x04,0x00,0x26]),
+  ("button_clear",      0x0a, "escape",       [0x04,0x00,0x29]),
+  ("button_enter",      0x0b, "return",       [0x04,0x00,0x28]),
+  ("button_power",      0x0c, "",             [0x03,0x82,0x00]),
+  ("button_windows",    0x0d, "ctrl-shift-w", []),
+  ("button_mute",       0x0e, "f8",           [0x01,0xe2,0x00]),
+  ("button_info",       0x0f, "ctrl-d",       [0x01,0x09,0x02]),
+  ("button_volup",      0x10, "f10",          [0x01,0xe9,0x00]),
+  ("button_voldown",    0x11, "f9",           [0x01,0xea,0x00]),
+  ("button_chanup",     0x12, "pageup",       [0x01,0x9c,0x00]),
+  ("button_chandown",   0x13, "pagedown",     [0x01,0x9d,0x00]),
+  ("button_ff",         0x14, "ctrl-shift-f", [0x01,0xb3,0x00]),
+  ("button_rew",        0x15, "ctrl-shift-b", [0x01,0xb4,0x00]),
+  ("button_play",       0x16, "ctrl-shift-p", [0x01,0xb0,0x00]),
+  ("button_record",     0x17, "ctrl-r",       [0x01,0xb2,0x00]),
+  ("button_pause",      0x18, "ctrl-p",       [0x01,0xb1,0x00]),
+  ("button_stop",       0x19, "ctrl-shift-s", [0x01,0xb7,0x00]),
+  ("button_next",       0x1a, "ctrl-f",       [0x01,0xb5,0x00]),
+  ("button_prev",       0x1b, "ctrl-b",       [0x01,0xb6,0x00]),
+  ("button_hash",       0x1c, "ctrl-shift-3", [0x04,0x02,0x20]),
+  ("button_star",       0x1d, "ctrl-shift-8", [0x04,0x02,0x25]),
+  ("button_up",         0x1e, "up",           [0x04,0x00,0x52]),
+  ("button_down",       0x1f, "down",         [0x04,0x00,0x51]),
+  ("button_left",       0x20, "left",         [0x04,0x00,0x50]),
+  ("button_right",      0x21, "right",        [0x04,0x00,0x4f]),
+  ("button_ok",         0x22, "return",       [0x04,0x00,0x28]),
+  ("button_back",       0x23, "backspace",    [0x01,0x24,0x02]),
+  ("button_dvdmenu",    0x24, "ctrl-shift-m", []),
+  ("button_livetv",     0x25, "ctrl-shift-t", []),
+  ("button_guide",      0x26, "ctrl-g",       [0x01,0x8d,0x00]),
+  ("button_asrock",     0x27, "ctrl-alt-t",   []),
 
-  ("button_xbopen",     0x28, "",   ""), # Open/Close on XBox universal remote
-  ("button_hpwron",     0x29, "",   ""), # Harmony discrete power on
-  ("button_hpwroff",    0x2a, "",   ""), # Harmony discrete power off
+  ("button_xbopen",     0x28, "",   []),               # Open/Close on XBox universal remote
+  ("button_hpwron",     0x29, "",   [0x03,0x83,0x00]), # Harmony discrete power on
+  ("button_hpwroff",    0x2a, "",   [0x03,0x82,0x00]), # Harmony discrete power off
 
-  ("button_music",      0x47, "ctrl-m",       ""),
-  ("button_recordedtv", 0x48, "ctrl-o",       ""),
-  ("button_pictures",   0x49, "ctrl-i",       ""),
-  ("button_movies",     0x4A, "ctrl-e",       ""),
+  ("button_unkwn",      0x3b, "",   [0x01,0x04,0x02]), # Unknown button
 
-  ("button_mgangle",    0x4b, "",   ""), # Mediagate DVD Angle
-  ("button_mgaudio",    0x4c, "",   ""), # Mediagate DVD Audio
-  ("button_mgsubtitle", 0x4d, "",   ""), # Mediagate Subtitles
-  ("button_hpprint",    0x4e, "",   ""), # Print on HP remote
-  ("button_xbdisplay",  0x4f, "",   ""), # Display on XBox universal remote
+  ("button_music",      0x47, "ctrl-m",       []),
+  ("button_recordedtv", 0x48, "ctrl-o",       []),
+  ("button_pictures",   0x49, "ctrl-i",       []),
+  ("button_movies",     0x4A, "ctrl-e",       []),
 
-  ("button_radio",      0x50, "ctrl-a",       ""),
-  ("button_teletext",   0x5a, "ctrl-t",       ""),
-  ("button_red",        0x5b, "ctrl-alt-1",   ""),
-  ("button_green",      0x5c, "ctrl-alt-2",   ""),
-  ("button_yellow",     0x5d, "ctrl-alt-3",   ""),
-  ("button_blue",       0x5e, "ctrl-alt-4",   ""),
+  ("button_mgangle",    0x4b, "",   []),                # Mediagate DVD Angle
+  ("button_mgaudio",    0x4c, "",   []),                # Mediagate DVD Audio
+  ("button_mgsubtitle", 0x4d, "",   []),                # Mediagate Subtitles
+  ("button_hpprint",    0x4e, "",   [0x01,0x08,0x02]),  # Print on HP remote
+  ("button_xbdisplay",  0x4f, "",   []),                # Display on XBox universal remote
 
-  ("button_xblargex",   0x64, "",   ""), # Large X on XBox universal remote
-  ("button_xbgreena",   0x66, "",   ""), # Green A on XBox universal remote
-  ("button_xbbluex",    0x68, "",   ""), # Blue  X on XBox universal remote
-  ("button_xbchanup",   0x6c, "",   ""), # Chan up on XBox universal remote
-  ("button_xbchandn",   0x6d, "",   ""), # Chan dn on XBox universal remote
-  ("button_playpause",  0x6e, "",   ""), # Play/pause on HP remote
+  ("button_radio",      0x50, "ctrl-a",       []),
+  ("button_teletext",   0x5a, "ctrl-t",       []),
+  ("button_red",        0x5b, "ctrl-alt-1",   []),
+  ("button_green",      0x5c, "ctrl-alt-2",   []),
+  ("button_yellow",     0x5d, "ctrl-alt-3",   []),
+  ("button_blue",       0x5e, "ctrl-alt-4",   []),
+
+  ("button_xblargex",   0x64, "",   []),                # Large X on XBox universal remote
+  ("button_xbgreena",   0x66, "",   []),                # Green A on XBox universal remote
+  ("button_xbbluex",    0x68, "",   []),                # Blue  X on XBox universal remote
+  ("button_xbchanup",   0x6c, "",   []),                # Chan up on XBox universal remote
+  ("button_xbchandn",   0x6d, "",   []),                # Chan dn on XBox universal remote
+  ("button_playpause",  0x6e, "",   [0x01,0xcd,0x00]), # Play/pause on HP remote
 )
 
 # Key to eHome character code mapping table
@@ -252,13 +254,13 @@ def ConvertKeyText(KeyText, Default):
 
     keymod = 0
     keycode = 0
-    ehomecode = ""
+    ehomecode = []
 
     dialog = xbmcgui.Dialog()
 
     keytext = KeyText.replace(" ", "").lower()
     if keytext == "":
-        return ""
+        return ehomecode
 
 # If the key text is "mce" return the default
 
@@ -306,7 +308,7 @@ def ConvertKeyText(KeyText, Default):
 
 # Return the converted key text
 
-    ehomecode = "\x04" + chr(keymod) + chr(keycode)
+    ehomecode = [0x04, keymod, keycode]
 
     return ehomecode
 
@@ -328,7 +330,7 @@ def ApplyCurrentSettings(Prompt):
 
 # Build the settings string from the _buttonData
 
-    reportmappingtable = ""
+    reportmappingtable = []
 
     for button in _buttonData:
         # keytext is the text entered by the user
@@ -336,16 +338,21 @@ def ApplyCurrentSettings(Prompt):
 
         # if the user has entered "mce" but the button table contains no
         # default, set the keytext to "" so it will be ignored.
-        if keytext == "mce" and button[3] == "":
+        if keytext == "mce" and len(button[3]) == 0:
             keytext = ""
 
         if keytext != "":
             thisbutton = ConvertKeyText(keytext, button[3])
-            if thisbutton == "":
+            if len(thisbutton) != 3:
                 dialog.ok("MCERemote", "The setting for " + button[0] + " is invalid: " + keytext)
                 return
 
-            reportmappingtable = reportmappingtable + chr(button[1]) + "\x00\x00\x00" + thisbutton
+            reportmappingtable.append(button[1])
+            reportmappingtable.append(0)
+            reportmappingtable.append(0)
+            reportmappingtable.append(0)
+            for i in thisbutton:
+                reportmappingtable.append(i)
 
 # Open the registry key
 
@@ -361,7 +368,7 @@ def ApplyCurrentSettings(Prompt):
 # Write the ReportMappingTable data
 
     try:
-        winreg.SetValueEx(hkey, "ReportMappingTable", 0, winreg.REG_BINARY, reportmappingtable)
+        winreg.SetValueEx(hkey, "ReportMappingTable", 0, winreg.REG_BINARY, bytes(reportmappingtable))
     except Exception as e:
         dialog.ok("MCERemote", "Unexpected error writing the ReportMappingTable data: " + e.args[0])
     except:
@@ -399,19 +406,23 @@ def ApplyDefaultSettings(Prompt):
         dialog.ok("MCERemote", "Unexpected error opening the IR registry key")
         return
 
-# Build the settings string from the _buttonData
+# Build the settings list from the _buttonData
 
-    reportmappingtable = ""
+    reportmappingtable = []
 
     for button in _buttonData:
-        if button[3] != "":
-            thisbutton = chr(button[1]) + "\x00\x00\x00" + button[3]
-            reportmappingtable = reportmappingtable + thisbutton
+        if len(button[3]) == 3:
+            reportmappingtable.append(button[1])
+            reportmappingtable.append(0)
+            reportmappingtable.append(0)
+            reportmappingtable.append(0)
+            for i in button[3]:
+                reportmappingtable.append(i)
 
 # Write the ReportMappingTable data
 
     try:
-        winreg.SetValueEx(hkey, "ReportMappingTable", 0, winreg.REG_BINARY, reportmappingtable)
+        winreg.SetValueEx(hkey, "ReportMappingTable", 0, winreg.REG_BINARY, bytes(reportmappingtable))
     except Exception as e:
         dialog.ok("MCERemote", "Unexpected error writing the ReportMappingTable data: " + e.args[0])
     except:
