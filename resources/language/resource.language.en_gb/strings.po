@@ -1,0 +1,274 @@
+# Kodi Media Center language file
+# Addon Name: MCERemote
+# Addon id: plugin.program.mceremote3
+# Addon Provider: John Rennie
+msgid ""
+msgstr ""
+
+msgctxt "#30999"
+msgid "Button mappings"
+msgstr ""
+
+msgctxt "#30000"
+msgid "Number 0"
+msgstr ""
+
+msgctxt "#30001"
+msgid "Number 1"
+msgstr ""
+
+msgctxt "#30002"
+msgid "Number 2"
+msgstr ""
+
+msgctxt "#30003"
+msgid "Number 3"
+msgstr ""
+
+msgctxt "#30004"
+msgid "Number 4"
+msgstr ""
+
+msgctxt "#30005"
+msgid "Number 5"
+msgstr ""
+
+msgctxt "#30006"
+msgid "Number 6"
+msgstr ""
+
+msgctxt "#30007"
+msgid "Number 7"
+msgstr ""
+
+msgctxt "#30008"
+msgid "Number 8"
+msgstr ""
+
+msgctxt "#30009"
+msgid "Number 9"
+msgstr ""
+
+msgctxt "#30010"
+msgid "Clear"
+msgstr ""
+
+msgctxt "#30011"
+msgid "Enter"
+msgstr ""
+
+msgctxt "#30012"
+msgid "Power"
+msgstr ""
+
+msgctxt "#30013"
+msgid "Windows"
+msgstr ""
+
+msgctxt "#30014"
+msgid "Volume mute"
+msgstr ""
+
+msgctxt "#30015"
+msgid "Info/More/Details"
+msgstr ""
+
+msgctxt "#30016"
+msgid "Volume up"
+msgstr ""
+
+msgctxt "#30017"
+msgid "Volume down"
+msgstr ""
+
+msgctxt "#30018"
+msgid "Page up"
+msgstr ""
+
+msgctxt "#30019"
+msgid "Page down"
+msgstr ""
+
+msgctxt "#30020"
+msgid "FF"
+msgstr ""
+
+msgctxt "#30021"
+msgid "Rewind"
+msgstr ""
+
+msgctxt "#30022"
+msgid "Play"
+msgstr ""
+
+msgctxt "#30023"
+msgid "Record"
+msgstr ""
+
+msgctxt "#30024"
+msgid "Pause"
+msgstr ""
+
+msgctxt "#30025"
+msgid "Stop"
+msgstr ""
+
+msgctxt "#30026"
+msgid "Next"
+msgstr ""
+
+msgctxt "#30027"
+msgid "Prev"
+msgstr ""
+
+msgctxt "#30028"
+msgid "Hash (#)"
+msgstr ""
+
+msgctxt "#30029"
+msgid "Asterisk (*)"
+msgstr ""
+
+msgctxt "#30030"
+msgid "Up arrow"
+msgstr ""
+
+msgctxt "#30031"
+msgid "Down arrow"
+msgstr ""
+
+msgctxt "#30032"
+msgid "Left arrow"
+msgstr ""
+
+msgctxt "#30033"
+msgid "Right arrow"
+msgstr ""
+
+msgctxt "#30034"
+msgid "OK"
+msgstr ""
+
+msgctxt "#30035"
+msgid "Back"
+msgstr ""
+
+msgctxt "#30036"
+msgid "DVD Menu"
+msgstr ""
+
+msgctxt "#30037"
+msgid "Live TV"
+msgstr ""
+
+msgctxt "#30038"
+msgid "Guide"
+msgstr ""
+
+msgctxt "#30039"
+msgid "Asrock top left button"
+msgstr ""
+
+msgctxt "#30071"
+msgid "My Music"
+msgstr ""
+
+msgctxt "#30072"
+msgid "Recorded TV"
+msgstr ""
+
+msgctxt "#30073"
+msgid "My Pictures"
+msgstr ""
+
+msgctxt "#30074"
+msgid "My Movies"
+msgstr ""
+
+msgctxt "#30080"
+msgid "Radio"
+msgstr ""
+
+msgctxt "#30090"
+msgid "Teletext"
+msgstr ""
+
+msgctxt "#30091"
+msgid "Red button"
+msgstr ""
+
+msgctxt "#30092"
+msgid "Green button"
+msgstr ""
+
+msgctxt "#30093"
+msgid "Yellow button"
+msgstr ""
+
+msgctxt "#30094"
+msgid "Blue button"
+msgstr ""
+
+msgctxt "#30041"
+msgid "Harmony discrete power on"
+msgstr ""
+
+msgctxt "#30042"
+msgid "Harmony discrete power off"
+msgstr ""
+
+msgctxt "#30075"
+msgid "Mediagate DVD Angle"
+msgstr ""
+
+msgctxt "#30076"
+msgid "Mediagate DVD Audio"
+msgstr ""
+
+msgctxt "#30077"
+msgid "Mediagate Subtitles"
+msgstr ""
+
+msgctxt "#30078"
+msgid "HP print"
+msgstr ""
+
+msgctxt "#30110"
+msgid "HP play/pause"
+msgstr ""
+
+msgctxt "#30040"
+msgid "XBox Open/Close"
+msgstr ""
+
+msgctxt "#30079"
+msgid "XBox Display"
+msgstr ""
+
+msgctxt "#30100"
+msgid "XBox Large X"
+msgstr ""
+
+msgctxt "#30102"
+msgid "XBox Green A"
+msgstr ""
+
+msgctxt "#30104"
+msgid "XBox Blue X"
+msgstr ""
+
+msgctxt "#30108"
+msgid "XBox Chan up"
+msgstr ""
+
+msgctxt "#30109"
+msgid "XBox Chan dn"
+msgstr ""
+
+msgctxt "#30998"
+msgid "Misc settings"
+msgstr ""
+
+msgctxt "#30200"
+msgid "Update/install keymap editor"
+msgstr ""

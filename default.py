@@ -593,7 +593,7 @@ _KEYMAPEDITURL = "http://swarchive.ratsauce.co.uk/XBMC/KeyMapEdit.exe"
 
 def GetKeyMapEdit():
 
-    import urllib
+    import urllib.request
 
     dialog = xbmcgui.Dialog()
 
@@ -601,7 +601,7 @@ def GetKeyMapEdit():
 
     # Attempt to open KeymapEdit.exe from Sourceforge
     try:
-        webFile = urllib.urlopen(_KEYMAPEDITURL)
+        webFile = urllib.request.urlopen(_KEYMAPEDITURL)
 
         # Attempt to open the local file
         try:
@@ -618,12 +618,12 @@ def GetKeyMapEdit():
             dialog.ok("MCERemote", "Unidentified error downloading KeyMapEdit.exe")
             return False
 
-    # Attempt to open Sourceforge failed
+    # Attempt to open URL failed
     except IOError as e:
-        dialog.ok("MCERemote", "Failed to connect to Sourceforge: " + str(e.args[1]))
+        dialog.ok("MCERemote", "Failed to connect to " + _KEYMAPEDITURL + ": " + str(e.args[0]) + str(e.args[1]))
         return False
-    except:
-        dialog.ok("MCERemote", "Unidentified error connecting to Sourceforge")
+    except Exception as e:
+        dialog.ok("MCERemote", "Unidentified error connecting: " + str(e.args[0]))
         return False
 
     # Return indicating the file was successfully downloaded
