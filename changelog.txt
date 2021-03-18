@@ -1,4 +1,4 @@
-[B]Version 3.0.0 16th March 2020[/B]
+[B]Version 3.0.0 16th March 2021[/B]
 - Change Python version to 3.0.0 for Matrix
 
 [B]Version 2.0.5 16th March 2014[/B]

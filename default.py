@@ -27,7 +27,7 @@ import xbmcaddon
 _thisPlugin = int(sys.argv[1])
 
 # Name of the plugin
-_thisPluginName = "plugin.program.mceremote3"
+_thisPluginName = "plugin.program.mceremote"
 
 # Addon object for reading settings
 _settings = xbmcaddon.Addon(id=_thisPluginName)

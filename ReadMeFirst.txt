@@ -30,14 +30,14 @@ After you've configured the remote you don't need the addon again and
 you can uninstall it. The only reason to leave the addon installed is
 if you want to tweak the remote config further.
 
-A note on Windows 7 and Vista: these versions of Windows have a feature
-called User Access Control that (very wisely) stops applications
-overwriting key bits of the registry. If UAC is on you may get an error
-message from the plugin to say it cannot write to the registry. If this
-happens try right-clicking on the XBMC shortcut then choose "Run as
-administrator", and the plugin should now be able to write to the
-registry. You only need to do this once. After you've run XBMC as
-administrator and used the plugin you can go back to using XBMC
+A note on Windows 10, 7 and Vista: these versions of Windows have a
+feature called User Access Control that (very wisely) stops
+applications overwriting key bits of the registry. If UAC is on you may
+get an error message from the plugin to say it cannot write to the
+registry. If this happens try right-clicking on the XBMC shortcut then
+choose "Run as administrator", and the plugin should now be able to
+write to the registry. You only need to do this once. After you've run
+XBMC as administrator and used the plugin you can go back to using XBMC
 normally.
 
 Advanced config
@@ -129,4 +129,4 @@ There isn't a manual for the keymap editor since it hould be pretty
 obvious how to use it.
 
 John Rennie
-20th November 2010
+16th March 2021
