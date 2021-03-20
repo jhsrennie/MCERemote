@@ -12,10 +12,10 @@
   <extension point="xbmc.addon.metadata">
     <platform>windx</platform>
     <language></language>
-    <summary>MCE Remote configuration</summary>
-    <description>This addon allows you to configure a Microsoft MCE remote, or any compatible remote using the eHome driver. The addon appears under the Programs heading on the Home page as "MCERemote".</description>
-    <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
-    <forum>http://forum.kodi.tv/showthread.php?tid=81687</forum>
+    <summary lang="en_GB">MCE Remote configuration</summary>
+    <description lang="en_GB">This addon allows you to configure a Microsoft MCE remote, or any compatible remote using the eHome driver. The addon appears under the Programs heading on the Home page as "MCERemote".</description>
+    <license>GPL-2.0-or-later, GPL-3.0-or-later, Apache-2.0</license>
+    <forum>https://forum.kodi.tv/showthread.php?tid=81687</forum>
     <source>https://github.com/jhsrennie/MCERemote</source>
     <assets>
         <icon>resources/icon.png</icon>
