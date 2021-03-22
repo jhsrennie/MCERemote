@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <settings version="1">
 	<section id="plugin.program.mceremote3">
-		<category id="buttonmappings" label="30999" help="">
+		<category id="buttonmappings" label="30200" help="">
 			<group id="1">
 				<setting id="button_0" type="string" label="30000" help="">
 					<level>0</level>
@@ -367,15 +367,6 @@
 						<allowempty>true</allowempty>
 					</constraints>
 					<control type="edit" format="string"/>
-				</setting>
-			</group>
-		</category>
-		<category id="miscsettings" label="30998" help="">
-			<group id="1">
-				<setting id="update_keyedit" type="boolean" label="30200" help="">
-					<level>0</level>
-					<default>true</default>
-					<control type="toggle"/>
 				</setting>
 			</group>
 		</category>

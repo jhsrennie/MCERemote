@@ -5,10 +5,6 @@
 msgid ""
 msgstr ""
 
-msgctxt "#30999"
-msgid "Button mappings"
-msgstr ""
-
 msgctxt "#30000"
 msgid "Number 0"
 msgstr ""
@@ -265,10 +261,131 @@ msgctxt "#30109"
 msgid "XBox Chan dn"
 msgstr ""
 
-msgctxt "#30998"
-msgid "Misc settings"
+msgctxt "#30200"
+msgid "Button mappings"
 msgstr ""
 
-msgctxt "#30200"
-msgid "Update/install keymap editor"
+msgctxt "#30300"
+msgid "MCERemote"
 msgstr ""
+
+msgctxt "#30301"
+msgid "This plugin only runs on Windows"
+msgstr ""
+
+msgctxt "#30302"
+msgid "Warning: The ReportMappingTable registry key is not present. No Microsoft remote is installed."
+msgstr ""
+
+#ApplyCurrentSettings
+
+msgctxt "#30303"
+msgid "This will configure the remote using the currently configured settings. Do you want to proceed?"
+msgstr ""
+
+msgctxt "#30304"
+msgid "The setting for {} is invalid: {}"
+msgstr ""
+
+msgctxt "#30305"
+msgid "Error opening the IR registry key: {}. Try running XBMC as administrator."
+msgstr ""
+
+msgctxt "#30306"
+msgid "Unexpected error opening the IR registry key."
+msgstr ""
+
+msgctxt "#30307"
+msgid "Unexpected error writing the ReportMappingTable data: {}"
+msgstr ""
+
+msgctxt "#30308"
+msgid "Unexpected error writing the ReportMappingTable data"
+msgstr ""
+
+msgctxt "#30309"
+msgid "Done! Please restart Windows to activate the changes."
+msgstr ""
+
+#ApplyDefaultSettings
+
+msgctxt "#30310"
+msgid "This will reset the remote to the default MS config. Do you want to proceed?"
+msgstr ""
+
+#ConfigureButtonSettings
+
+msgctxt "#30311"
+msgid "Do you want to apply these settings to the remote now?"
+msgstr ""
+
+#RestoreDefaultButtonSettings
+
+msgctxt "#30312"
+msgid "This will reset the remote button settings to the Media Center defaults. Do you want to proceed?"
+msgstr ""
+
+#EditKeyboardDotXML
+
+msgctxt "#30313"
+msgid "You don't currently have a keyboard.xml file. Do you want to create one?"
+msgstr ""
+
+msgctxt "#30314"
+msgid "Warning: your file has an error: {}"
+msgstr ""
+
+msgctxt "#30315"
+msgid "There was an unidentified error in your keyboard.xml file."
+msgstr ""
+
+#CreateKeyboardDotXML
+
+msgctxt "#30316"
+msgid "Cannot find the template keyboard.xml. The MCERemote addon is not properly installed."
+msgstr ""
+
+msgctxt "#30317"
+msgid "A keyboard.xml already exists in: {}. Do you want to overwrite it?"
+msgstr ""
+
+msgctxt "#30318"
+msgid "Create the template keyboard.xml in: {}?"
+msgstr ""
+
+msgctxt "#30319"
+msgid "Unexpected error copying the keyboard.xml file."
+msgstr ""
+
+#ReadInstructions
+
+msgctxt "#30320"
+msgid "Cannot find ReadMeFirst.txt. The MCERemote addon is not properly installed."
+msgstr ""
+
+#ListOptions
+
+msgctxt "#30321"
+msgid "Read the instructions"
+msgstr ""
+
+msgctxt "#30322"
+msgid "Apply current settings to remote"
+msgstr ""
+
+msgctxt "#30323"
+msgid "Apply Windows default settings to remote"
+msgstr ""
+
+msgctxt "#30324"
+msgid "Configure MCERemote settings"
+msgstr ""
+
+msgctxt "#30325"
+msgid "Restore default MCERemote settings"
+msgstr ""
+
+msgctxt "#30326"
+msgid "Edit keyboard.xml"
+msgstr ""
+

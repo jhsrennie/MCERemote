@@ -1,8 +1,8 @@
 Introduction
 ------------
-The MCERemote addon for XBMC Dharma (and later versions) is intended to
+The MCERemote addon for Kodi Dharma (and later versions) is intended to
 make it very easy for users to get a Microsoft remote working with
-XBMC. However to keep things simple it offers little flexibility. This
+Kodi. However to keep things simple it offers little flexibility. This
 document and the associated files are intended for users who want more
 control over the customisation, or who are just curious to find out
 how it all works.
@@ -13,11 +13,11 @@ OSX remote controllers work through the Lirc interface.
 The files included here are (in no particular order):
 
   MSRemote.reg
-  - a registry file to configure the MS remote for use with XBMC
+  - a registry file to configure the MS remote for use with Kodi
 
   CreateTestConfig.reg
   - a registry file to install a test configuration. This won't work
-  with XBMC. The only purpose of this configuration is to identify any
+  with Kodi. The only purpose of this configuration is to identify any
   additional buttons on MS compatible remotes
 
   MSDefault.reg
@@ -25,7 +25,7 @@ The files included here are (in no particular order):
   Microsoft remote is first connected.
 
   keyboard.xml
-  - an XBMC keymap for buttons that don't have a standard Media Center
+  - an Kodi keymap for buttons that don't have a standard Media Center
   keyboard shortcut, e.g. the four coloured buttons.
 
   CopyKeyboardDotXML.bat
@@ -38,14 +38,14 @@ The files included here are (in no particular order):
 
   ShowKey.exe
   - an applet to identify keystrokes sent by an MCE remote.
-  - NB this applet isn't included in the addon because the XBMC addon
+  - NB this applet isn't included in the addon because the Kodi addon
     repository doesn't allow binaries. You can get the addon from
-    http://xbmcmce.sourceforge.net/.
+    http://Kodimce.sourceforge.net/.
 
 
-Using a remote with XBMC
+Using a remote with Kodi
 ------------------------
-The big problem with using remote controls on XBMC is that Windows
+The big problem with using remote controls on Kodi is that Windows
 provides no standard interface for remote ontrols. The way we get round
 this is to make the remote control emulate a keyboard i.e. when you
 press a button on the remote handset Windows thinks a key has been
@@ -62,7 +62,7 @@ Microsoft remote so it sends these standard keystrokes. The registry
 files will also work with any Microsoft compatible remote that uses the
 Microsoft eHome device driver. This includes the HP remote and the
 remote included with the Asrock 330HT HTPCs, as well as various other
-remotes. See http://wiki.xbmc.org/index.php?title=Remote_Control_Reviews
+remotes. See http://wiki.Kodi.org/index.php?title=Remote_Control_Reviews
 for some remotes that are known to be compatible with the MS remote.
 
 
@@ -89,7 +89,7 @@ The MCERemote addon and registry files here work by modifying this
 value.
 
 You can install any of the configurations included here just by
-double-clicking the .reg file (or by using the addon from within XBMC).
+double-clicking the .reg file (or by using the addon from within Kodi).
 
 This is probably as far as you need to read if you're just curious. The
 following sections go into detail on the format of the
@@ -207,7 +207,7 @@ Showkey.exe
 When playing around with remote controllers it's useful to see exactly
 what the remote controller is sending to Windows. ShowKey is an applet
 that records any keystrokes it receives and tells you what they are. It
-also gives you the XML you need for using that keystroke in an XBMC
+also gives you the XML you need for using that keystroke in an Kodi
 keyboard mapping file. Finally it records any WM_APPCOMMAND
 Windows messages it receives. This is likely to be of interest only to
 us Windows programmers!

@@ -16,12 +16,12 @@ set THEDATE=%THEDATE:~6,4%%THEDATE:~3,2%%THEDATE:~0,2%
 rem *** Warn the user what we're about to do
 
 echo This script will copy the sample keyboard.xml to:
-echo %APPDATA%\XBMC\userdata\keymaps\keyboard.xml
-echo -
+echo %APPDATA%\Kodi\userdata\keymaps\keyboard.xml
+echo.
 echo If there is already a keyboard.xml it will be renamed keyboard.xml.%THEDATE%
-echo -
+echo.
 echo Press control-C to abort or any key to continue
-echo -
+echo.
 pause
 
 rem *** Check we can find the keyboard.xml
@@ -38,12 +38,12 @@ exit
 
 rem *** Check if we need to backup the old keyboard.xml
 
-set OLDKB=%APPDATA%\XBMC\userdata\keymaps\keyboard.xml
+set OLDKB=%APPDATA%\Kodi\userdata\keymaps\keyboard.xml
 if not exist "%OLDKB%" goto nooldkb
 
 set OLDKBBACK=keyboard.xml.%THEDATE%
-if not exist "%APPDATA%\XBMC\userdata\keymaps\%OLDKBBACK%" goto nooldkbback
-del /F /Q "%APPDATA%\XBMC\userdata\keymaps\%OLDKBBACK%"
+if not exist "%APPDATA%\Kodi\userdata\keymaps\%OLDKBBACK%" goto nooldkbback
+del /F /Q "%APPDATA%\Kodi\userdata\keymaps\%OLDKBBACK%"
 :nooldkbback
 
 echo Renaming %OLDKB% to %OLDKBBACK%
@@ -54,7 +54,7 @@ pause
 
 rem *** Copy the new keyboard.xml
 
-md "%APPDATA%\XBMC\userdata\keymaps" 1>NUL 2>&1
+md "%APPDATA%\Kodi\userdata\keymaps" 1>NUL 2>&1
 copy "%NEWKB%" "%OLDKB%"
 
 echo Keyboard.xml copied to %OLDKB%

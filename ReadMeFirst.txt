@@ -1,15 +1,15 @@
-MCERemote Addon for XBMC
+MCERemote Addon for Kodi
 ========================
 
 Introduction
 ------------
 This plugin will customise the Microsoft remote (and compatibles like
-the Asrock and HP remotes) for use with XBMC. If you don't have an MS
+the Asrock and HP remotes) for use with Kodi. If you don't have an MS
 or compatible remote the plugin will warn you of this. If your remote
 isn't MS compatible the addon won't do anything useful, but won't do
 any harm either.
 
-The Microsoft remote works pretty well in XBMC without any
+The Microsoft remote works pretty well in Kodi without any
 customisation needed. Just a few buttons won't work. If you're happy
 with this you don't need to use this addon and you need read no
 further.
@@ -18,11 +18,11 @@ Quick start
 -----------
 Most people will just want to configure the remote to use the standard
 Windows Media Center keyboard shortcuts. In this case just select the
-second item in the list "Apply current settings to remote". Exit XBMC
+second item in the list "Apply current settings to remote". Exit Kodi
 and reboot your PC, and all buttons on the remote will now work with
-XBMC. The remote will still work with Windows Media Center as well. If
+Kodi. The remote will still work with Windows Media Center as well. If
 for any reason you want to back out the changes select the third
-option "Apply Windows default settings to remote", exit XBMC and
+option "Apply Windows default settings to remote", exit Kodi and
 reboot. This will set the remote back to the way it was before you used
 the MCERemote addon.
 
@@ -34,10 +34,10 @@ A note on Windows 10, 7 and Vista: these versions of Windows have a
 feature called User Access Control that (very wisely) stops
 applications overwriting key bits of the registry. If UAC is on you may
 get an error message from the plugin to say it cannot write to the
-registry. If this happens try right-clicking on the XBMC shortcut then
+registry. If this happens try right-clicking on the Kodi shortcut then
 choose "Run as administrator", and the plugin should now be able to
 write to the registry. You only need to do this once. After you've run
-XBMC as administrator and used the plugin you can go back to using XBMC
+Kodi as administrator and used the plugin you can go back to using Kodi
 normally.
 
 Advanced config
@@ -69,7 +69,7 @@ The keypress is described as follows:
   "ctrl-shift-?" sends a ? keystroke with the control and shift keys
   held down.
 
-  Note that XBMC doesn't distinguish between shifted keys, e.g. "/" and
+  Note that Kodi doesn't distinguish between shifted keys, e.g. "/" and
   "?" are the same keystroke because "?" is just "/" with shift down.
   The key text "ctrl-?" and "ctrl-/" send the same keypress and you can
   use either.
@@ -91,7 +91,7 @@ The keypress is described as follows:
   delete
   end
 
-When you close the Settings dialog be sure to click OK or XBMC will
+When you close the Settings dialog be sure to click OK or Kodi will
 discard all your changes without warning you!
 
 When you close the Settings dialog you'll be asked if you want to
@@ -107,26 +107,24 @@ Edit keyboard.xml
 -----------------
 
 If you tweak the button settings you might want to write a keyboard.xml
-file to make XBMC take whatever action you want on your customised
+file to make Kodi take whatever action you want on your customised
 keypress. The sixth option "Edit keyboard.xml" will edit your
 keyboard.xml.
 
-As first installed, MCERemote will ask if you want to download a keymap
-editor applet. If you answer "No" it won't nag you again. If you
-subsequently want to download the keymap editor go into the addon
-settings, and under the Misc section enable "Update/install keymap
-editor". When you next select "Edit keyboard.xml" you'll be prompted to
-download the keymap editor.
+By default your keyboard.xml will be opened in Notepad. If you don't
+already have a keyboard.xml you'll be asked if you want to create one.
+Answer yes to create a template keyboard.xml that you can modify to your
+requirements.
 
-If you don't download the keymap editor your keyboard.xml will be
-opened in Notepad.
+I have written a keymap editor applet but it can't be included in this
+addon as the Kodi team (very sensibly) don't allow random executables to
+be included in addons. You can download it from:
 
-NB if you don't already have a keyboard.xml you'll be asked if you want
-to create one. Answer yes to create a template keyboard.xml that you
-can modify to your requirements.
+http://swarchive.ratsauce.co.uk/XBMC/KeyMapEdit.exe
 
-There isn't a manual for the keymap editor since it hould be pretty
-obvious how to use it.
+If you download this and place it in any directory that is on the path
+the MCERemote addon will use it instead of Notepad. There isn't a manual
+for the keymap editor since it hould be pretty obvious how to use it.
 
 John Rennie
 16th March 2021
